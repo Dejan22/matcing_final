@@ -1,0 +1,37 @@
+<% require 'json' %>
+
+<div class="container">
+  <%= form_for [@match] do |m| %>
+    <div class="form-group">
+      <%= m.label :day %>
+      <br>
+      <%= m.date_field :day %>
+    </div>
+    <div class="actions">
+      <%= m.submit "Generate matches" %>
+    </div>
+  <% end %>
+  <br>
+
+  <table class="table">
+    <tbody>
+
+      <% @matches.each do |match| %>
+      <tr>
+        <td>
+        <%= match.day %>
+        <%= link_to 'Details', match_path(match.id) %>
+      </tr>
+      <tr>
+        <td>
+        <% match.matches.each do |pair| %>
+          <%= pair %> <br>
+        <% end %>
+        </td>
+      </tr>
+
+      <% end %>
+
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,28 @@
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="table_head">Administrators</th>
+        <th>Students</th>
+      </tr>
+    </thead>
+    <tbody>
+      <td>
+          <% @users.each do |user| %>
+            <% if user.admin? %>
+            <li><%= user.email %></li>
+            <%= button_to "DEMOTE", {action: "toggle_admin", id: user.id}, method: :put, class:"btn btn-primary btn-xs" %>
+            <% end %>
+          <% end %>
+      </td>
+      <td>
+        <% @users.each do |user| %>
+          <% unless user.admin? %>
+          <li> <%= user.email %></li>
+          <%= button_to "PROMOTE", {action: "toggle_admin", id: user.id}, method: :put, class:"btn btn-primary btn-xs" %>
+          <% end %>
+        <% end %>
+      </td>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,16 @@
+<div class="jumbotron">
+<% if user_signed_in? %>
+  <h3>Welcome to Match Maker <%= current_user.email %></h3>
+<h4> Your pair is: </h4>
+<table class="table">
+  <tbody>
+    <% @matches.each do |match| %>
+    <tr>
+      <td>
+      <%= match.day %>
+      <%= link_to 'Details', match_path(match.id) %>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>

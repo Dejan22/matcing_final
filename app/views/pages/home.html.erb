@@ -1,0 +1,9 @@
+<% if user_signed_in? %>
+    <div class="jumbotron">
+  <h3>Welcome to Match Maker <%= current_user.email %></h3>
+  <% else %>
+  <div class="jumbotron">
+  <p class="lead"> Welcome to</p>
+  <h1 class="display-3">MatchMaker</h1>
+  </div>
+  <% end %>
