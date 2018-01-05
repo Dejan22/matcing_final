@@ -3,7 +3,7 @@ class MatchesController < ApplicationController
   def index
     @matches = Match.all
     @match = Match.new
-    
+
   end
 
 
@@ -26,7 +26,7 @@ class MatchesController < ApplicationController
   def create_matches(day)
     @schedule = Pair.new.days
     @schedule.each do |k,v|
-      Match.create!(day: day.to_date+k-1 ,matches: v)
+      Match.create!(day: day.to_date+k ,matches: v)
     end
   end
 

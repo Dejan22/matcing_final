@@ -19,3 +19,4 @@ wiebe = User.create!( email: 'wiebe@email.com', password: '123456')
 
 
 arno = User.create!( email: 'arno@codaisseur.com', password: '123456', admin: true)
+cas = User.create!( email: 'cas@codaisseur.com', password: '123456', admin: true)
